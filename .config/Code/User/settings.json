@@ -1,0 +1,29 @@
+{   
+    "vim.handleKeys": {
+        "<C-c>": false,
+        "<C-v>": false,
+        "<C-x>": false,
+        "<C-y>": false,
+        "<C-z>": false,
+        "<C-a>": false,
+    },
+    "telemetry.telemetryLevel": "off",
+    "editor.fontFamily": "'Maple Mono NF', regular",
+    "editor.fontSize": 14,
+    "workbench.colorCustomizations": {
+        // 编辑器背景：Nord #2E3440
+        "editor.background": "#00000030",
+        // 侧边栏、活动栏、终端背景全部统一
+        "sideBar.background": "#1f242f80",
+        "activityBar.background": "#2E3440",
+        "terminal.background": "#2E3440",
+        "panel.background": "#2E3440",
+        // 甚至可以把标题栏也统一（如果没隐藏标题栏的话）
+        "titleBar.activeBackground": "#2E3440",
+        "titleBar.inactiveBackground": "#2E3440"
+        },
+        "workbench.colorTheme": "Tomorrow Night Blue",
+        "workbench.secondarySideBar.defaultVisibility": "visible",
+        "window.zoomLevel": 0.5,
+        "editor.stickyScroll.enabled": false
+}
