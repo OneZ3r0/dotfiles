@@ -26,6 +26,24 @@
 To be completed...
 
 
+## GNU Stow process example
+```
+mkdir dotfiles
+cd dotfiles
+
+git init .
+mkdir .config
+
+cp -r ~/.config/kitty/ .config/
+
+tree -I ".git" -a .
+
+git add .
+git commit -m "added in kitty"
+
+stow --adopt .
+```
+
 ## Some Words
 I am a complete beginner and want to use Linux as my primary machine... Since Win11 is a "shit". Right? (especially in term of memory usage...
 

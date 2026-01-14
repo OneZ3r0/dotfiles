@@ -5,3 +5,7 @@ starship init fish | source
 function fish_greeting
 #    # smth smth
 end
+# Load JetBrains VM Options
+if test -f ~/.jetbrains.vmoptions.sh
+    source ~/.jetbrains.vmoptions.sh
+end

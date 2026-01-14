@@ -40,9 +40,16 @@ environment {
     screenshot-path null // Disable screenshot saving
 
     spawn-at-startup "qs" "-c" "noctalia-shell"
+    spawn-at-startup "dbus-update-activation-environment" "--all"
 
 	hotkey-overlay {
 		skip-at-startup
+	}
+
+	gestures {
+	    hot-corners {
+		    off 
+        }
 	}
 
 
@@ -244,7 +251,8 @@ animations {
         match app-id="code"
         opacity 0.85
     }
-    /- window-rule {
-    	match app-id="YesPlayMusic"
-	open-floating true
+    window-rule {
+    	match app-id="yesplaymusic"
+        // open-maximized true
+        default-column-width { proportion 1.0; }
     }
