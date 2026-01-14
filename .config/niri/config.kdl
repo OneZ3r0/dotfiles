@@ -144,7 +144,7 @@ binds {
     Mod+SHIFT+F { fullscreen-window; }
 
     // ─── Modes ───
-	MOD+O { toggle-overview; }
+    MOD+O { toggle-overview; }
     MOD+T { toggle-window-floating; }
     MOD+W { toggle-column-tabbed-display; }
 
@@ -178,6 +178,12 @@ layout {
 	focus-ring {
 		width 3
 		active-color "#f9f9f970"
+		inactive-color "#505050"
+	}
+    // if use border style your opacity setting will be invalid
+	/- border {
+		width 3
+		active-color "#f9f9f9"
 		inactive-color "#505050"
 	}
 	shadow {
