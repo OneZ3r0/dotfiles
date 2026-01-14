@@ -1,0 +1,8 @@
+# 忽略 Obsidian 生成的文件夹
+.obsidian
+
+# 重新加上被覆盖掉的默认忽略项
+.git
+.gitignore
+README.*
+LICENSE.*
