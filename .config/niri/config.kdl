@@ -61,7 +61,11 @@ input {
         }
     }
     touchpad {
-        off
+        // off
+	tap
+	scroll-method "two-finger"
+	natural-scroll
+	dwt
     }
     mouse {
         scroll-factor 2
@@ -107,7 +111,8 @@ binds {
     XF86Sleep allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
 
     // ─── Window Movement and Focus ───
-    MOD+Q { close-window; }
+    MOD+Q allow-inhibiting=false { close-window; }
+    Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
 
     MOD+H { focus-column-left; }
     MOD+L { focus-column-right; }
@@ -255,4 +260,11 @@ animations {
     	match app-id="yesplaymusic"
         // open-maximized true
         default-column-width { proportion 1.0; }
+    }
+    window-rule {
+        match app-id="QQ" title="图片查看器"
+        match app-id="QQ" title="群聊的聊天记录"
+        match app-id="main" title="添加"
+        match app-id="aggressor-Aggressor" title="Preferences"
+        open-floating true
     }
