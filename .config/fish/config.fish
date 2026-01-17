@@ -9,3 +9,4 @@ end
 if test -f ~/.jetbrains.vmoptions.sh
     source ~/.jetbrains.vmoptions.sh
 end
+fnm env --use-on-cd | source

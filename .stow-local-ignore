@@ -6,3 +6,6 @@
 .gitignore
 README.*
 LICENSE.*
+
+# 忽略root根目录/etc需要的文件
+system-configs

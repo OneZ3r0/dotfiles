@@ -96,7 +96,7 @@ binds {
     // ─── My Apps ───
     MOD+RETURN hotkey-overlay-title="alacritty" { spawn-sh "kitty"; }
     MOD+SPACE hotkey-overlay-title="wofi" { spawn-sh "wofi"; }
-    MOD+B hotkey-overlay-title="firefox" { spawn-sh "firefox"; }
+    MOD+B hotkey-overlay-title="Open Browser" { spawn-sh "zen-browser"; }
     MOD+E hotkey-overlay-title="Nautilus" { spawn-sh "nautilus"; }
     MOD+C hotkey-overlay-title="Code" { spawn-sh "code --disable-gpu"; }
 
@@ -266,5 +266,9 @@ animations {
         match app-id="QQ" title="群聊的聊天记录"
         match app-id="main" title="添加"
         match app-id="aggressor-Aggressor" title="Preferences"
+        match app-id="wps" title="wps"
+        match app-id="AdaptixClient" title="Connect"
+        match app-id="wechat" title="Moments"
+        // match app-id="featherpad"
         open-floating true
     }

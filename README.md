@@ -22,6 +22,10 @@
 - YesPlayMusic
 - Bazaar
 - Mission Center
+- Zen-Browser
+- Yazi
+- Chatbox
+- Featherpad
 
 To be completed...
 
@@ -48,7 +52,6 @@ stow --adopt .
 I am a complete beginner and want to use Linux as my primary machine... Since Win11 is a "shit". Right? (especially in term of memory usage...
 
 By contrast, using Linux, you can highly DIY your machine to pursue high productivity and also enjoy its beauty.
-
 
 
 
