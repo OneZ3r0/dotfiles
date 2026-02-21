@@ -19,7 +19,7 @@
 ## Necessary Packages / Softwares
 ## Useful Packages / Softwares
 - daed
-- YesPlayMusic
+- Biu
 - Bazaar
 - Mission Center
 - Zen-Browser

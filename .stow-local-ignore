@@ -12,3 +12,6 @@ system-configs
 
 # 忽略上传的自定义的图标文件
 .local/share/icons
+
+# 忽略.bak文件
+.*\.bak
