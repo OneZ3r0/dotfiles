@@ -1,0 +1,6 @@
+[keys]
+# 将保存快捷键修改为 Ctrl + s
+save = "<Control>s"
+[general]
+# 让 satty 使用 wl-copy 命令来写入剪贴板
+copy-command = "wl-copy"

@@ -1,0 +1,9 @@
+[mgr]
+append_keymap = [
+	{ on = [ "g", "s" ], run = "cd ~/Sec",          desc = "Go to ~/Sec" },
+	{ on = [ "g", "p" ], run = "cd ~/Sec/pentest",          desc = "Go to ~/Sec/pentest" },
+	{ on = [ "g", "m" ], run = "cd /run/media/onez3r0/FP80",          desc = "Go to /run/media/onez3r0/FP80" },
+	{ on = [ "g", "w" ], run = "cd /mnt/windows_d",          desc = "Go to /mnt/windows_d" },
+	{ on = [ "g", "t" ], run = "cd /tmp",          desc = "Go to /tmp" },
+	{ on = [ "g", "b" ], run = "cd ~/Documents/MyHexoBlog",          desc = "Go to MyBlog" },
+]

@@ -91,18 +91,21 @@ binds {
     MOD+I{ spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
     MOD+V { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"; }
     ALT+F4 { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
-    CTRL+ALT+A { screenshot; }
-
+    // CTRL+ALT+A { spawn-sh "grim -g \"$(slurp)\" - | env GTK_CSD=1 satty -f - --copy-command 'wl-copy --type image/png'"; }
+    // CTRL+ALT+A { spawn-sh "QT_SCALE_FACTOR=0.66667 flameshot gui"; }
+    CTRL+ALT+A { spawn-sh "grim -g \"$(slurp)\" - | swappy -f -"; }
+    CTRL+ALT+D { spawn-sh "grim -g \"$(slurp)\" - | tesseract - stdout -l chi_sim+eng 2>/dev/null | wl-copy"; }
     // ─── My Apps ───
     MOD+RETURN hotkey-overlay-title="alacritty" { spawn-sh "kitty"; }
     MOD+SPACE hotkey-overlay-title="wofi" { spawn-sh "wofi"; }
     MOD+B hotkey-overlay-title="Open Browser" { spawn-sh "zen-browser"; }
     MOD+E hotkey-overlay-title="Nautilus" { spawn-sh "nautilus"; }
-    MOD+C hotkey-overlay-title="Code" { spawn-sh "code --disable-gpu"; }
+    MOD+P hotkey-overlay-title="FeatherPad" { spawn-sh "featherpad"; }
+    // MOD+C hotkey-overlay-title="Code" { spawn-sh "code --disable-gpu"; }
 
     // ─── Audio Controls ───
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
     XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioPause allow-when-locked=true { spawn-sh "playerctl play-pause"; }
@@ -132,8 +135,10 @@ binds {
     MOD+WHEELSCROLLDOWN cooldown-ms=150 { focus-workspace-down; }
     MOD+SHIFT+K	{ focus-workspace-up; }
     MOD+WHEELSCROLLUP cooldown-ms=150 { focus-workspace-up; }
-    MOD+CTRL+WHEELSCROLLDOWN cooldown-ms=150 { move-column-to-workspace-down; }
-    MOD+CTRL+WHEELSCROLLUP cooldown-ms=150 { move-column-to-workspace-up; }
+    // MOD+CTRL+WHEELSCROLLDOWN cooldown-ms=150 { move-column-to-workspace-down; }
+    MOD+SHIFT+DOWN { move-column-to-workspace-down; }
+    // MOD+CTRL+WHEELSCROLLUP cooldown-ms=150 { move-column-to-workspace-up; }
+    MOD+SHIFT+UP { move-column-to-workspace-up; }
 
     MOD+1 { focus-workspace 1; }
     MOD+2 { focus-workspace 2; }
@@ -147,6 +152,7 @@ binds {
     MOD+TAB { focus-workspace-previous; }
 
     // ─── Layout Controls ───
+    MOD+C { center-column; }
     MOD+MINUS { set-column-width "-10%"; }
     MOD+EQUAL { set-column-width "+10%"; }
     MOD+SHIFT+MINUS { set-window-height "-10%"; }
@@ -158,12 +164,14 @@ binds {
     // ─── Modes ───
     MOD+O { toggle-overview; }
     MOD+T { toggle-window-floating; }
-    MOD+W { toggle-column-tabbed-display; }
+    // MOD+W { toggle-column-tabbed-display; }
+    MOD+W { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
 
     // ─── Emergency Escape Key ───
     // Use this when a fullscreen app blocks your keybinds.
     // It disables any active keyboard shortcut inhibitor, restoring control.
     // MOD+ESCAPE allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Mod+Shift+Q { quit; }
 
     // ─── About Monitor ───
     // MOD+SHIFT+LEFT { focus-monitor-left; }
@@ -181,6 +189,8 @@ binds {
 layout {
 	gaps 10 // Gap between windows
 	center-focused-column "never" // Don’t auto-center focused column
+	empty-workspace-above-first
+	always-center-single-column
 
 	preset-column-widths {
 		proportion 0.33333
@@ -189,7 +199,7 @@ layout {
 	}
 	focus-ring {
 		width 3
-		active-color "#f9f9f970"
+		active-color "#6a9cee70"
 		inactive-color "#505050"
 	}
     // if use border style your opacity setting will be invalid
@@ -211,7 +221,7 @@ layout {
 // ────────────── Animation Settings ──────────────
 animations {
 	workspace-switch {
-		spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+		spring damping-ratio=0.8 stiffness=600 epsilon=0.0001
 	}
 	window-open {
 		duration-ms 200
@@ -244,8 +254,8 @@ animations {
 
 
 // ────────────── Window Rules ──────────────
-    window-rule {
-        match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    /- window-rule {
+        match app-id=r#"firefox$"# title="^画中画$"
         open-floating true // Always float Firefox PiP windows
     }
     window-rule {
@@ -254,21 +264,30 @@ animations {
     }
     window-rule {
         match app-id="code"
+	match app-id="antigravity"
         opacity 0.85
     }
     window-rule {
-    	match app-id="yesplaymusic"
-        // open-maximized true
-        default-column-width { proportion 1.0; }
-    }
-    window-rule {
-        match app-id="QQ" title="图片查看器"
-        match app-id="QQ" title="群聊的聊天记录"
+        match app-id="QQ"
         match app-id="main" title="添加"
         match app-id="aggressor-Aggressor" title="Preferences"
         match app-id="wps" title="wps"
         match app-id="AdaptixClient" title="Connect"
-        match app-id="wechat" title="Moments"
+        match app-id="wechat"
+	match title="微信"
+	match app-id="satty"
+	match app-id="flameshot"
+	match app-id="Biu"
+	match app-id="Zotero" title="Zotero 设置"
         // match app-id="featherpad"
+	match app-id="com.hex_rays.IDA.pro._9_3" title="About"
+	match app-id="jetbrains-pycharm" title="设置"
+	// match app-id="burp-StartBurp" title="Intruder.*"
+	match app-id="wemeetapp" title="请选择.*"
+	match app-id="VirtualBox" title="首选项|设置$"
+	match app-id="xdg-desktop-portal-gtk" title="^打开"
+	match app-id="org.quickshell" title="Noctalia"
+	// default-column-width { fixed 480; }
+	// default-window-height { fixed 270; }
         open-floating true
     }

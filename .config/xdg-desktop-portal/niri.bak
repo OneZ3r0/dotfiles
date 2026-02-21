@@ -1,0 +1,12 @@
+[screencast]
+# 关键：不走 slurp/wofi 等 chooser，避免 "selection cancelled"
+chooser_type=none
+
+# 如果你只有单屏，这里不填也行；多屏想固定就填 wl_output 的 name
+output_name=eDP-1
+
+# 可选：降低负载
+# max_fps=30
+
+# 可选：多 GPU / modifier 兼容性（遇到协商失败时常有帮助）
+force_mod_linear=1

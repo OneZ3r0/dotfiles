@@ -9,3 +9,6 @@ LICENSE.*
 
 # 忽略root根目录/etc需要的文件
 system-configs
+
+# 忽略上传的自定义的图标文件
+.local/share/icons
