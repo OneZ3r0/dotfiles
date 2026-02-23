@@ -17,6 +17,10 @@ highlight EndOfBuffer guifg=#4C566A ctermfg=8
 "按键映射
 nnoremap J 5j
 nnoremap K 5k
+nnoremap H ^
+nnoremap L $
 
 vnoremap J 5j
 vnoremap K 5k
+vnoremap H ^
+vnoremap L $

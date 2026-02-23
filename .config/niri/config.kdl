@@ -122,8 +122,9 @@ binds {
     MOD+J { focus-window-down; }
     MOD+K { focus-window-up; }
 
-    Mod+A { consume-window-into-column; }
-    Mod+D { expel-window-from-column; }
+    Mod+A { consume-or-expel-window-left; }
+    // Mod+D { expel-window-from-column; }
+    Mod+D { consume-or-expel-window-right; }
 
     MOD+LEFT { move-column-left; }
     MOD+RIGHT { move-column-right; }
@@ -163,6 +164,7 @@ binds {
 
     // ─── Modes ───
     MOD+O { toggle-overview; }
+    MOD+MouseMiddle { toggle-overview; }
     MOD+T { toggle-window-floating; }
     // MOD+W { toggle-column-tabbed-display; }
     MOD+W { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
@@ -190,7 +192,7 @@ layout {
 	gaps 10 // Gap between windows
 	center-focused-column "never" // Don’t auto-center focused column
 	empty-workspace-above-first
-	always-center-single-column
+	// always-center-single-column
 
 	preset-column-widths {
 		proportion 0.33333
@@ -275,8 +277,8 @@ animations {
         match app-id="AdaptixClient" title="Connect"
         match app-id="wechat"
 	match title="微信"
-	match app-id="satty"
-	match app-id="flameshot"
+	// match app-id="satty"
+	// match app-id="flameshot"
 	match app-id="Biu"
 	match app-id="Zotero" title="Zotero 设置"
         // match app-id="featherpad"
@@ -287,6 +289,9 @@ animations {
 	match app-id="VirtualBox" title="首选项|设置$"
 	match app-id="xdg-desktop-portal-gtk" title="^打开"
 	match app-id="org.quickshell" title="Noctalia"
+	match app-id="showmethekey-gtk"
+	match app-id="qalculate-gtk"
+	match app-id="Java"
 	// default-column-width { fixed 480; }
 	// default-window-height { fixed 270; }
         open-floating true
