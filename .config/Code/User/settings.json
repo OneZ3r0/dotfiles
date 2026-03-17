@@ -11,6 +11,7 @@
         "<C-w>": false,
         "<C-k>": false,
         "<C-j>": false,
+        "<C-i>": false,
     },
     "vim.normalModeKeyBindings": [
         {
@@ -176,5 +177,7 @@
     "solidity.packageDefaultDependenciesDirectory": "lib",
     "solidity.formatter": "forge",
     "terminal.integrated.stickyScroll.enabled": false,
-    "workbench.colorTheme": "Tomorrow Night Blue"
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "chat.viewSessions.orientation": "stacked",
+    "editor.inlineSuggest.enabled": false
 }

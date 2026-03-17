@@ -12,6 +12,9 @@ set termguicolors
 highlight LineNr ctermfg=80 guifg=#AFEDFF
 highlight CursorLineNr ctermfg=11 guifg=#EBCB8B gui=bold
 highlight EndOfBuffer guifg=#4C566A ctermfg=8
+highlight Visual ctermbg=67 guibg=#5F87AF ctermfg=NONE guifg=NONE
+"highlight Visual ctermbg=67 guibg=#5F87AF ctermfg=252 guifg=#DCDCDC
+"highlight Visual ctermbg=24 guibg=#264F78 ctermfg=NONE guifg=NONE
 
 
 "按键映射

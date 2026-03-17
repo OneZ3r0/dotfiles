@@ -41,6 +41,9 @@ environment {
 
     spawn-at-startup "qs" "-c" "noctalia-shell"
     spawn-at-startup "dbus-update-activation-environment" "--all"
+    /* noctalia-shell since 4.6.0 no longer support systemd backend, and also has a idle function integrated in. */
+
+    // spawn-at-startup "swayidle" "-w" "timeout" "600" "qs -c noctalia-shell ipc call sessionMenu lockAndSuspend"
 
 	hotkey-overlay {
 		skip-at-startup
@@ -81,6 +84,10 @@ output "eDP-2" {
     scale 1.5
 }
 
+output "HDMI-A-1" {
+    position x=1707 y=0
+}
+
 
 // ────────────── Keybindings ──────────────
 binds {
@@ -91,9 +98,14 @@ binds {
     MOD+I{ spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
     MOD+V { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"; }
     ALT+F4 { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+
+    // my plugins bind
+    MOD+SHIFT+C { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:show-keys" "toggle"; }
+
     // CTRL+ALT+A { spawn-sh "grim -g \"$(slurp)\" - | env GTK_CSD=1 satty -f - --copy-command 'wl-copy --type image/png'"; }
     // CTRL+ALT+A { spawn-sh "QT_SCALE_FACTOR=0.66667 flameshot gui"; }
     CTRL+ALT+A { spawn-sh "grim -g \"$(slurp)\" - | swappy -f -"; }
+    CTRL+ALT+SHIFT+A { spawn "sh" "-c" "delay=$(echo -e '1\n2\n3\n5\n10' | wofi --dmenu --prompt 'Delay seconds'); [ -n \"$delay\" ] && sleep \"$delay\" && grim -g \"$(slurp)\" - | swappy -f -"; }
     CTRL+ALT+D { spawn-sh "grim -g \"$(slurp)\" - | tesseract - stdout -l chi_sim+eng 2>/dev/null | wl-copy"; }
     // ─── My Apps ───
     MOD+RETURN hotkey-overlay-title="alacritty" { spawn-sh "kitty"; }
@@ -115,7 +127,7 @@ binds {
 
     // ─── Window Movement and Focus ───
     MOD+Q allow-inhibiting=false { close-window; }
-    Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     MOD+H { focus-column-left; }
     MOD+L { focus-column-right; }
@@ -172,16 +184,21 @@ binds {
     // ─── Emergency Escape Key ───
     // Use this when a fullscreen app blocks your keybinds.
     // It disables any active keyboard shortcut inhibitor, restoring control.
-    // MOD+ESCAPE allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-    Mod+Shift+Q { quit; }
+    // to avoid being stuck inside
+    MOD+Shift+Q allow-inhibiting=false { quit; }
+
+    // ─── Screenshots ───
+    CTRL+Shift+1                        { screenshot; }
+    CTRL+Shift+2                        { screenshot-screen; }
+    CTRL+Shift+3                        { screenshot-window; }
 
     // ─── About Monitor ───
-    // MOD+SHIFT+LEFT { focus-monitor-left; }
-    // MOD+SHIFT+RIGHT { focus-monitor-right; }
+    MOD+SHIFT+H { focus-monitor-left; }
+    MOD+SHIFT+L { focus-monitor-right; }
+    MOD+SHIFT+LEFT { move-column-to-monitor-left; }
+    MOD+SHIFT+RIGHT { move-column-to-monitor-right; }
     // MOD+SHIFT+UP { focus-monitor-up; }
     // MOD+SHIFT+DOWN { focus-monitor-down; }
-    // MOD+SHIFT+CTRL+LEFT { move-column-to-monitor-left; }
-    // MOD+SHIFT+CTRL+RIGHT { move-column-to-monitor-right; }
     // MOD+SHIFT+CTRL+UP { move-column-to-monitor-up; }
     // MOD+SHIFT+CTRL+DOWN { move-column-to-monitor-down; }
 }
@@ -277,6 +294,7 @@ animations {
         match app-id="AdaptixClient" title="Connect"
         match app-id="wechat"
 	match title="微信"
+	match title="Official Accounts"
 	// match app-id="satty"
 	// match app-id="flameshot"
 	match app-id="Biu"
@@ -287,11 +305,15 @@ animations {
 	// match app-id="burp-StartBurp" title="Intruder.*"
 	match app-id="wemeetapp" title="请选择.*"
 	match app-id="VirtualBox" title="首选项|设置$"
-	match app-id="xdg-desktop-portal-gtk" title="^打开"
-	match app-id="org.quickshell" title="Noctalia"
+	match app-id="zen" title="^需要输入|我的足迹"
+	match app-id="xdg-desktop-portal-gtk" title="^打开|^选择|Save File"
+	match app-id="dev.noctalia.noctalia-qs" title="Noctalia"
 	match app-id="showmethekey-gtk"
 	match app-id="qalculate-gtk"
 	match app-id="Java"
+	match app-id="org.wireshark.Wireshark" title=".*Value.*"
+	match app-id="baidunetdisk"
+	match app-id="AntSword"
 	// default-column-width { fixed 480; }
 	// default-window-height { fixed 270; }
         open-floating true
