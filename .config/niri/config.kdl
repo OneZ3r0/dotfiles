@@ -321,3 +321,9 @@ animations {
 	// default-window-height { fixed 270; }
         open-floating true
     }
+
+// disable nvidia gpu, use vfio to control nvidia gpu
+debug {
+    ignore-drm-device "/dev/dri/by-path/pci-0000:01:00.0-card"
+    ignore-drm-device "/dev/dri/by-path/pci-0000:01:00.0-render"
+}
