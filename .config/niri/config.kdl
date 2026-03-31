@@ -20,6 +20,7 @@ environment {
 // ────────────── Startup Applications ──────────────
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
 
+    // swww has been renamed as awww
     // Old settings for the Overview backgroundImg
     // spawn-sh-at-startup "swww-daemon -n overview"
     // spawn-sh-at-startup "swww img /home/onez3r0/Pictures/Wallpapers/wallhaven-9ozmyd-overview.jpg -n overview"
@@ -112,7 +113,7 @@ binds {
     MOD+SPACE hotkey-overlay-title="wofi" { spawn-sh "wofi"; }
     MOD+B hotkey-overlay-title="Open Browser" { spawn-sh "zen-browser"; }
     MOD+E hotkey-overlay-title="Nautilus" { spawn-sh "nautilus"; }
-    MOD+P hotkey-overlay-title="FeatherPad" { spawn-sh "featherpad"; }
+    MOD+P hotkey-overlay-title="Apostrophe" { spawn-sh "apostrophe"; }
     // MOD+C hotkey-overlay-title="Code" { spawn-sh "code --disable-gpu"; }
 
     // ─── Audio Controls ───
@@ -314,6 +315,8 @@ animations {
 	match app-id="org.wireshark.Wireshark" title=".*Value.*"
 	match app-id="baidunetdisk"
 	match app-id="AntSword"
+    match app-id="wpp" title="wpp"
+    match app-id="btrfs-assistant"
 	// default-column-width { fixed 480; }
 	// default-window-height { fixed 270; }
         open-floating true

@@ -222,7 +222,47 @@
         "when": "editorFocus"
     },
     {
+        "key": "ctrl+l",
+        "command": "-continue.focusContinueInput"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-continue.focusEdit"
+    },
+    {
+        "key": "ctrl+alt+n",
+        "command": "-continue.rejectVerticalDiffBlock"
+    },
+    {
+        "key": "ctrl+alt+i",
+        "command": "-workbench.panel.chat",
+        "when": "workbench.panel.chat.view.copilot.active"
+    },
+    {
+        "key": "ctrl+alt+i",
+        "command": "-workbench.action.chat.open",
+        "when": "!chatSetupDisabled && !chatSetupHidden"
+    },
+    {
+        "key": "ctrl+alt+i",
+        "command": "workbench.panel.chat"
+    },
+    {
+        "key": "ctrl+alt+i",
+        "command": "continue.focusContinueInput"
+    },
+    {
         "key": "ctrl+shift+c",
-        "command": "chatgpt.addToThread"
+        "command": "-workbench.action.browser.addElementToChat",
+        "when": "browserHasUrl && chatIsEnabled && config.chat.sendElementsToChat.enabled && !browserHasError && activeEditor == 'workbench.editor.browser'"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "editor.action.clipboardCopyAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-editor.action.clipboardCopyAction"
     }
 ]

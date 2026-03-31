@@ -1,3 +1,16 @@
+"设置 Vim 内部使用的字符编码
+"set encoding=utf-8
+
+"设置识别文件编码的优先级顺序
+"Vim 会按顺序尝试，直到匹配成功
+"set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+
+"设置tab键为4个空格
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
 "显示行号
 set number
 "语法高亮

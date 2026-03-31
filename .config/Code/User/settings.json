@@ -179,5 +179,7 @@
     "terminal.integrated.stickyScroll.enabled": false,
     "workbench.colorTheme": "Tomorrow Night Blue",
     "chat.viewSessions.orientation": "stacked",
-    "editor.inlineSuggest.enabled": false
+    "editor.inlineSuggest.enabled": true,
+    "continue.enableTabAutocomplete": true,
+    "editor.cursorSmoothCaretAnimation": "on"
 }
