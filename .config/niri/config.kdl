@@ -18,7 +18,7 @@ environment {
 
 
 // ────────────── Startup Applications ──────────────
-    spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
+    // spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
 
     // swww has been renamed as awww
     // Old settings for the Overview backgroundImg
@@ -40,7 +40,8 @@ environment {
     prefer-no-csd // Disable program decorations
     screenshot-path null // Disable screenshot saving
 
-    spawn-at-startup "qs" "-c" "noctalia-shell"
+    spawn-at-startup "env" "QT_IM_MODULE=" "XMODIFIERS=" "qs" "-c" "noctalia-shell"
+    // spawn-at-startup "qs" "-c" "noctalia-shell"
     spawn-at-startup "dbus-update-activation-environment" "--all"
     /* noctalia-shell since 4.6.0 no longer support systemd backend, and also has a idle function integrated in. */
 
@@ -105,9 +106,13 @@ binds {
 
     // CTRL+ALT+A { spawn-sh "grim -g \"$(slurp)\" - | env GTK_CSD=1 satty -f - --copy-command 'wl-copy --type image/png'"; }
     // CTRL+ALT+A { spawn-sh "QT_SCALE_FACTOR=0.66667 flameshot gui"; }
-    CTRL+ALT+A { spawn-sh "grim -g \"$(slurp)\" - | swappy -f -"; }
+    CTRL+ALT+A { spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit annotate"; }
+    // CTRL+ALT+A { spawn-sh "grim -g \"$(slurp)\" - | swappy -f -"; }
     CTRL+ALT+SHIFT+A { spawn "sh" "-c" "delay=$(echo -e '1\n2\n3\n5\n10' | wofi --dmenu --prompt 'Delay seconds'); [ -n \"$delay\" ] && sleep \"$delay\" && grim -g \"$(slurp)\" - | swappy -f -"; }
     CTRL+ALT+D { spawn-sh "grim -g \"$(slurp)\" - | tesseract - stdout -l chi_sim+eng 2>/dev/null | wl-copy"; }
+
+    CTRL+ALT+P { spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit pin"; }
+
     // ─── My Apps ───
     MOD+RETURN hotkey-overlay-title="alacritty" { spawn-sh "kitty"; }
     MOD+SPACE hotkey-overlay-title="wofi" { spawn-sh "wofi"; }
@@ -323,7 +328,7 @@ animations {
     }
 
 // disable nvidia gpu, use vfio to control nvidia gpu
-debug {
+/- debug {
     ignore-drm-device "/dev/dri/by-path/pci-0000:01:00.0-card"
     ignore-drm-device "/dev/dri/by-path/pci-0000:01:00.0-render"
 }
