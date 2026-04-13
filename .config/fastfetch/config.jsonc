@@ -21,6 +21,9 @@
     },
     "width": 35
   },
+  "display": {
+    "separator": " "
+  },
   "modules": [
     "break",
     {
@@ -36,7 +39,6 @@
     {
       "type": "packages",
       "key": " ├   PAK ",
-      //"format": "{all}",
       "keyColor": "#5cf4d5"
     },
     {
