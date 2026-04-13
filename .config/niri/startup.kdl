@@ -1,0 +1,29 @@
+// ────────────── Environment Variables ──────────────
+environment {
+    // DISPLAY ":1"
+    XMODIFIERS "@im=fcitx"
+    QT_IM_MODULE fcitx
+    ELECTRON_OZONE_PLATFORM_HINT auto
+    GTK_IM_MODULE fcitx
+    // QT_QPA_PLATFORM "wayland"
+    // QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    // XDG_SESSION_TYPE "wayland"
+    XDG_CURRENT_DESKTOP niri
+    GSK_RENDERER gl
+}
+// ────────────── Startup Applications ──────────────
+// spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
+// swww has been renamed as awww
+// spawn-sh-at-startup "swww-daemon -n overview"
+// spawn-sh-at-startup "swww img /home/onez3r0/Pictures/Wallpapers/wallhaven-9ozmyd-overview.jpg -n overview"
+spawn-at-startup wl-paste --type text --watch cliphist store
+spawn-at-startup wl-paste --type image --watch cliphist store
+spawn-at-startup env "QT_IM_MODULE=" "XMODIFIERS=" qs -c noctalia-shell
+// spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup dbus-update-activation-environment --all
+/* noctalia-shell since 4.6.0 no longer support systemd backend, and also has a idle function integrated in. */
+// spawn-at-startup "swayidle" "-w" "timeout" "600" "qs -c noctalia-shell ipc call sessionMenu lockAndSuspend"
+hotkey-overlay {
+    skip-at-startup
+}
+

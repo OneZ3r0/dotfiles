@@ -1,0 +1,225 @@
+// ────────────── Keybindings ──────────────
+binds {
+    MOD+SHIFT+ESCAPE {
+        show-hotkey-overlay
+    }
+    // ——— My System keyBindings ———
+    MOD+M {
+        spawn-sh "qs -c noctalia-shell ipc call launcher toggle"
+    }
+    MOD+I {
+        spawn-sh "qs -c noctalia-shell ipc call settings toggle"
+    }
+    MOD+V {
+        spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"
+    }
+    ALT+F4 {
+        spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"
+    }
+    // my plugins bind
+    MOD+SHIFT+C {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:show-keys" "toggle"
+    }
+    CTRL+ALT+A {
+        spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit annotate"
+    }
+    CTRL+ALT+SHIFT+A {
+        spawn "sh" "-c" "delay=$(echo -e '1\n2\n3\n5\n10' | wofi --dmenu --prompt 'Delay seconds'); [ -n \"$delay\" ] && sleep \"$delay\" && grim -g \"$(slurp)\" - | swappy -f -"
+    }
+    CTRL+ALT+D {
+        spawn-sh "grim -g \"$(slurp)\" - | tesseract - stdout -l chi_sim+eng 2>/dev/null | wl-copy"
+    }
+    CTRL+ALT+P {
+        spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit pin"
+    }
+    // ─── My Apps ───
+    MOD+RETURN hotkey-overlay-title="alacritty" {
+        spawn-sh "kitty"
+    }
+    MOD+SPACE hotkey-overlay-title="wofi" {
+        spawn-sh "wofi"
+    }
+    MOD+B hotkey-overlay-title="Open Browser" {
+        spawn-sh "zen-browser"
+    }
+    MOD+E hotkey-overlay-title="Nautilus" {
+        spawn-sh "nautilus"
+    }
+    MOD+P hotkey-overlay-title="Apostrophe" {
+        spawn-sh "apostrophe --new-window"
+    }
+    // ─── Audio Controls ───
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"
+    }
+    XF86AudioMute allow-when-locked=true {
+        spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    }
+    XF86AudioPlay allow-when-locked=true {
+        spawn-sh "playerctl play-pause"
+    }
+    XF86AudioPause allow-when-locked=true {
+        spawn-sh "playerctl play-pause"
+    }
+    XF86MonBrightnessUp allow-when-locked=true {
+        spawn-sh "brightnessctl set 5%+"
+    }
+    XF86MonBrightnessDown allow-when-locked=true {
+        spawn-sh "brightnessctl set 5%-"
+    }
+    XF86Sleep allow-when-locked=true {
+        spawn-sh "qs -c noctalia-shell ipc call sessionMenu lockAndSuspend"
+    }
+    // ─── Window Movement and Focus ───
+    MOD+Q allow-inhibiting=false {
+        close-window
+    }
+    Mod+Escape allow-inhibiting=false {
+        toggle-keyboard-shortcuts-inhibit
+    }
+    MOD+H {
+        focus-column-left
+    }
+    MOD+L {
+        focus-column-right
+    }
+    MOD+J {
+        focus-window-down
+    }
+    MOD+K {
+        focus-window-up
+    }
+    Mod+A {
+        consume-or-expel-window-left
+    }
+    Mod+D {
+        consume-or-expel-window-right
+    }
+    MOD+LEFT {
+        move-column-left
+    }
+    MOD+RIGHT {
+        move-column-right
+    }
+    MOD+UP {
+        move-window-up
+    }
+    MOD+DOWN {
+        move-window-down
+    }
+    // ─── Workspace Switching ───
+    MOD+SHIFT+J {
+        focus-workspace-down
+    }
+    MOD+WHEELSCROLLDOWN cooldown-ms=150 {
+        focus-workspace-down
+    }
+    MOD+SHIFT+K {
+        focus-workspace-up
+    }
+    MOD+WHEELSCROLLUP cooldown-ms=150 {
+        focus-workspace-up
+    }
+    MOD+SHIFT+DOWN {
+        move-column-to-workspace-down
+    }
+    MOD+SHIFT+UP {
+        move-column-to-workspace-up
+    }
+    MOD+1 {
+        focus-workspace 1
+    }
+    MOD+2 {
+        focus-workspace 2
+    }
+    MOD+3 {
+        focus-workspace 3
+    }
+    MOD+4 {
+        focus-workspace 4
+    }
+    MOD+CTRL+1 {
+        move-column-to-workspace 1
+    }
+    MOD+CTRL+2 {
+        move-column-to-workspace 2
+    }
+    MOD+CTRL+3 {
+        move-column-to-workspace 3
+    }
+    MOD+CTRL+4 {
+        move-column-to-workspace 4
+    }
+    MOD+TAB {
+        focus-workspace-previous
+    }
+    // ─── Layout Controls ───
+    MOD+C {
+        center-column
+    }
+    MOD+MINUS {
+        set-column-width "-10%"
+    }
+    MOD+EQUAL {
+        set-column-width "+10%"
+    }
+    MOD+SHIFT+MINUS {
+        set-window-height "-10%"
+    }
+    MOD+SHIFT+EQUAL {
+        set-window-height "+10%"
+    }
+    Mod+R {
+        switch-preset-column-width
+    }
+    Mod+F {
+        maximize-column
+    }
+    Mod+SHIFT+F {
+        fullscreen-window
+    }
+    // ─── Modes ───
+    MOD+O {
+        toggle-overview
+    }
+    MOD+MouseMiddle {
+        toggle-overview
+    }
+    MOD+T {
+        toggle-window-floating
+    }
+    MOD+W {
+        spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"
+    }
+    // ─── Emergency Escape Key ───
+    MOD+SHIFT+Q allow-inhibiting=false {
+        quit
+    }
+    // ─── Screenshots ───
+    CTRL+SHIFT+1 {
+        screenshot
+    }
+    CTRL+SHIFT+2 {
+        screenshot-screen
+    }
+    CTRL+SHIFT+3 {
+        screenshot-window
+    }
+    // ─── About Monitor ───
+    MOD+SHIFT+H {
+        focus-monitor-left
+    }
+    MOD+SHIFT+L {
+        focus-monitor-right
+    }
+    MOD+SHIFT+LEFT {
+        move-column-to-monitor-left
+    }
+    MOD+SHIFT+RIGHT {
+        move-column-to-monitor-right
+    }
+}
+

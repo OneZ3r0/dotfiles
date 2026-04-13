@@ -1,0 +1,52 @@
+// ────────────── Window & Layer Rules ──────────────
+/- layer-rule {
+match namespace="swww-daemonoverview"
+place-within-backdrop true
+}
+layer-rule {
+    match namespace="^noctalia-overview*"
+    place-within-backdrop true
+}
+/- window-rule {
+match app-id=r#"firefox$"# title="^画中画$"
+open-floating true // Always float Firefox PiP windows
+}
+window-rule {
+    geometry-corner-radius 15
+ // Set every window radius to 15    clip-to-geometry true
+}
+window-rule {
+    match app-id="code"
+    match app-id="antigravity"
+    opacity 0.85
+}
+window-rule {
+    match app-id="QQ"
+    match app-id="main" title="添加"
+    match app-id="aggressor-Aggressor" title="Preferences"
+    match app-id="wps" title="wps"
+    match app-id="AdaptixClient" title="Connect"
+    match app-id="wechat"
+    match title="微信"
+    match title="Official Accounts"
+    match app-id="Biu"
+    match app-id="Zotero" title="Zotero 设置"
+    match app-id="com.hex_rays.IDA.pro._9_3" title="About"
+    match app-id="jetbrains-pycharm" title="设置"
+    match app-id="wemeetapp" title="请选择.*"
+    match app-id="VirtualBox" title="首选项|设置$"
+    match app-id="zen" title="^需要输入|我的足迹"
+    match app-id="xdg-desktop-portal-gtk" title="^打开|^选择|Save File"
+    match app-id="dev.noctalia.noctalia-qs" title="Noctalia"
+    match app-id="showmethekey-gtk"
+    match app-id="qalculate-gtk"
+    match app-id="Java"
+    match app-id="org.wireshark.Wireshark" title=".*Value.*"
+    match app-id="baidunetdisk"
+    match app-id="AntSword"
+    match app-id="wpp" title="wpp"
+    match app-id="btrfs-assistant"
+    match app-id="com.hex_rays.IDA.pro._9_3" title="Switch to..."
+    open-floating true
+}
+
