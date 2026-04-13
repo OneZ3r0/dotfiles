@@ -13,6 +13,7 @@ open-floating true // Always float Firefox PiP windows
 }
 window-rule {
     geometry-corner-radius 15
+    clip-to-geometry true
  // Set every window radius to 15    clip-to-geometry true
 }
 window-rule {

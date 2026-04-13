@@ -1,35 +1,43 @@
 // ────────────── Layout Settings ──────────────
 layout {
     gaps 10
-    center-focused-column never
+    // Gap between windows
+    center-focused-column "never"
+    // Don’t auto-center focused column
     empty-workspace-above-first
     // always-center-single-column
+    
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
     }
+    
     focus-ring {
+        on
         width 3
         active-color "#6a9cee70"
         inactive-color "#505050"
     }
+    
     // if use border style your opacity setting will be invalid
     /- border {
-    width 3
-    active-color "#f9f9f9"
-    inactive-color "#505050"
+        width 3
+        active-color "#f9f9f9"
+        inactive-color "#505050"
     }
+    
     shadow {
         softness 30
         spread 5
         offset x=0 y=5
         color "#0007"
     }
+    
     struts {
-
     }
 }
+
 // ────────────── Animation Settings ──────────────
 animations {
     workspace-switch {
@@ -37,11 +45,11 @@ animations {
     }
     window-open {
         duration-ms 200
-        curve ease-out-quad
+        curve "ease-out-quad"
     }
     window-close {
         duration-ms 200
-        curve ease-out-cubic
+        curve "ease-out-cubic"
     }
     horizontal-view-movement {
         spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
@@ -57,10 +65,9 @@ animations {
     }
     screenshot-ui-open {
         duration-ms 300
-        curve ease-out-quad
+        curve "ease-out-quad"
     }
     overview-open-close {
         spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
     }
 }
-

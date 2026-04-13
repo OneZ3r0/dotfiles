@@ -4,19 +4,20 @@ gestures {
         off
     }
 }
+
 input {
     keyboard {
         xkb {
-            layout us
+            layout "us"
         }
     }
     touchpad {
         // off
         tap
-        scroll-method two-finger
+        scroll-method "two-finger"
         natural-scroll
         dwt
- // disabled-on-external-mouse
+        // disabled-on-external-mouse
     }
     mouse {
         scroll-factor 2
@@ -24,16 +25,18 @@ input {
     focus-follows-mouse
     workspace-auto-back-and-forth
 }
-output eDP-2 {
+
+output "eDP-2" {
     mode "2560x1600@240.000"
     scale 1.5
 }
-output HDMI-A-1 {
+
+output "HDMI-A-1" {
     position x=1707 y=0
 }
- // disable nvidia gpu, use vfio to control nvidia gpu
+
+// disable nvidia gpu, use vfio to control nvidia gpu
 /- debug {
     ignore-drm-device "/dev/dri/by-path/pci-0000:01:00.0-card"
     ignore-drm-device "/dev/dri/by-path/pci-0000:01:00.0-render"
 }
-
