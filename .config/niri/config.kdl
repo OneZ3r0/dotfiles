@@ -12,7 +12,7 @@ environment {
 	// QT_QPA_PLATFORM "wayland"
 	// QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
 	// XDG_SESSION_TYPE "wayland"
-	// XDG_CURRENT_DESKTOP "niri"
+	XDG_CURRENT_DESKTOP "niri"
 	GSK_RENDERER "gl"
 }
 
@@ -71,6 +71,7 @@ input {
 	scroll-method "two-finger"
 	natural-scroll
 	dwt
+    // disabled-on-external-mouse
     }
     mouse {
         scroll-factor 2
@@ -118,7 +119,7 @@ binds {
     MOD+SPACE hotkey-overlay-title="wofi" { spawn-sh "wofi"; }
     MOD+B hotkey-overlay-title="Open Browser" { spawn-sh "zen-browser"; }
     MOD+E hotkey-overlay-title="Nautilus" { spawn-sh "nautilus"; }
-    MOD+P hotkey-overlay-title="Apostrophe" { spawn-sh "apostrophe"; }
+    MOD+P hotkey-overlay-title="Apostrophe" { spawn-sh "apostrophe --new-window"; }
     // MOD+C hotkey-overlay-title="Code" { spawn-sh "code --disable-gpu"; }
 
     // ─── Audio Controls ───
@@ -322,6 +323,7 @@ animations {
 	match app-id="AntSword"
     match app-id="wpp" title="wpp"
     match app-id="btrfs-assistant"
+    match app-id="com.hex_rays.IDA.pro._9_3" title="Switch to..."
 	// default-column-width { fixed 480; }
 	// default-window-height { fixed 270; }
         open-floating true

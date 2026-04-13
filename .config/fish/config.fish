@@ -27,3 +27,8 @@ function y
 end
 
 fish_add_path -a "/home/onez3r0/.foundry/bin"
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/onez3r0/.lmstudio/bin
+# End of LM Studio CLI section
+
