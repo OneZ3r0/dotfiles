@@ -3,51 +3,87 @@
 match namespace="swww-daemonoverview"
 place-within-backdrop true
 }
-layer-rule {
-    match namespace="^noctalia-overview*"
-    place-within-backdrop true
-}
 /- window-rule {
 match app-id=r#"firefox$"# title="^画中画$"
 open-floating true // Always float Firefox PiP windows
 }
+layer-rule {
+    match namespace="^noctalia-overview*"
+    place-within-backdrop true
+}
+// blur effect
+/- layer-rule {
+    match namespace="noctalia-bar.*"
+    block-out-from "screencast"
+}
+window-rule {
+    background-effect {
+        xray true
+        blur true
+        noise 0.05
+        saturation 3
+    }
+}
+// radius corner for every window
 window-rule {
     geometry-corner-radius 15
     clip-to-geometry true
- // Set every window radius to 15    clip-to-geometry true
 }
+// opacity window
 window-rule {
     match app-id="code"
     match app-id="antigravity"
-    opacity 0.85
+    match app-id="jetbrains-idea"
+    match app-id="kitty"
+    opacity 0.9
+}
+/- window-rule {
+match app-id="chromium"
+match app-id="zen"
+opacity 0.9
 }
 window-rule {
-    match app-id="QQ"
-    match app-id="main" title="添加"
-    match app-id="aggressor-Aggressor" title="Preferences"
-    match app-id="wps" title="wps"
-    match app-id="AdaptixClient" title="Connect"
-    match app-id="wechat"
-    match title="微信"
-    match title="Official Accounts"
-    match app-id="Biu"
-    match app-id="Zotero" title="Zotero 设置"
-    match app-id="com.hex_rays.IDA.pro._9_3" title="About"
-    match app-id="jetbrains-pycharm" title="设置"
-    match app-id="wemeetapp" title="请选择.*"
-    match app-id="VirtualBox" title="首选项|设置$"
-    match app-id="zen" title="^需要输入|我的足迹"
+    draw-border-with-background false
+}
+// floating window
+window-rule {
     match app-id="xdg-desktop-portal-gtk" title="^打开|^选择|Save File"
     match app-id="dev.noctalia.noctalia-qs" title="Noctalia"
-    match app-id="showmethekey-gtk"
     match app-id="qalculate-gtk"
-    match app-id="Java"
-    match app-id="org.wireshark.Wireshark" title=".*Value.*"
-    match app-id="baidunetdisk"
-    match app-id="AntSword"
-    match app-id="wpp" title="wpp"
     match app-id="btrfs-assistant"
+    match app-id="scrcpy"
+// ======================================
+    match app-id="main" title="添加"
+    match app-id="aggressor-Aggressor" title="Preferences"
+    match app-id="AdaptixClient" title="Connect"
+    match app-id="AntSword"
+    match app-id="Java"
     match app-id="com.hex_rays.IDA.pro._9_3" title="Switch to..."
+    match app-id="org.wireshark.Wireshark" title="Value"
+// ======================================
+    match title="首选项|设置$|Settings$|About$"
+    match app-id="QQ"
+    match app-id="wps" title="wps"
+    match app-id="wechat"
+    match app-id="Biu"
+    match app-id="zen" title="^需要输入|我的足迹"
+    match app-id="baidunetdisk"
+    match app-id="wpp" title="wpp"
     open-floating true
+}
+// do not fullscreen window
+window-rule {
+    match app-id="com.hex_rays.IDA.pro._9_3"
+    match app-id="burp-StartBurp"
+    open-fullscreen false
+    open-maximized-to-edges false
+}
+/- window-rule {
+    match app-id="chromium" title=".*Google Gemini.*"
+    match app-id="zen"
+    match app-id="scrcpy"
+    match app-id="QQ"
+    block-out-from "screencast"
+    // block-out-from "screen-capture"
 }
 

@@ -273,5 +273,13 @@
     {
         "key": "ctrl+shift+k",
         "command": "openInTerminal"
+    },
+    {
+        "key": "ctrl+shift+alt+l",
+        "command": "continue.focusContinueInputWithoutClear"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "-continue.focusContinueInputWithoutClear"
     }
 ]

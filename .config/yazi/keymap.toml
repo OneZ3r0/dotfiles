@@ -1,13 +1,35 @@
-[mgr]
-append_keymap = [
-	{ on = [ "g", "s" ], run = "cd ~/Sec",          desc = "Go to ~/Sec" },
-	{ on = [ "g", "p" ], run = "cd ~/Sec/pentest",          desc = "Go to ~/Sec/pentest" },
-	{ on = [ "g", "m" ], run = "cd /run/media/onez3r0/FP80",          desc = "Go to /run/media/onez3r0/FP80" },
-	{ on = [ "g", "w" ], run = "cd /mnt/windows_d",          desc = "Go to /mnt/windows_d" },
-	{ on = [ "g", "t" ], run = "cd /tmp",          desc = "Go to /tmp" },
-	{ on = [ "g", "b" ], run = "cd ~/Documents/MyHexoBlog",          desc = "Go to MyBlog" },
-]
+# goto bindings
+[[mgr.append_keymap]]
+on   = [ "g", "s" ]
+run  = "cd ~/Sec"
+desc = "Go to ~/Sec"
 
+[[mgr.append_keymap]]
+on   = [ "g", "p" ]
+run  = "cd ~/Sec/pentest"
+desc = "Go to ~/Sec/pentest"
+
+[[mgr.append_keymap]]
+on   = [ "g", "m" ]
+run  = "cd /run/media/onez3r0/FP80"
+desc = "Go to /run/media/onez3r0/FP80"
+
+[[mgr.append_keymap]]
+on   = [ "g", "w" ]
+run  = "cd /mnt/windows_d"
+desc = "Go to /mnt/windows_d"
+
+[[mgr.append_keymap]]
+on   = [ "g", "t" ]
+run  = "cd /tmp"
+desc = "Go to /tmp"
+
+[[mgr.append_keymap]]
+on   = [ "g", "b" ]
+run  = "cd ~/Documents/MyHexoBlog"
+desc = "Go to MyBlog"
+
+# compress plugin
 [[mgr.prepend_keymap]]
 on   = [ "c", "a", "a" ]
 run  = "plugin compress"
@@ -32,3 +54,20 @@ desc = "Archive selected files (compression level)"
 on   = [ "c", "a", "u" ]
 run  = "plugin compress -phl"
 desc = "Archive selected files (password+header+level)"
+
+# J/K
+[[mgr.prepend_keymap]]
+on   = [ "J" ]
+run  = "arrow +5"
+desc = "Next 5 file"
+
+[[mgr.prepend_keymap]]
+on   = [ "K" ]
+run  = "arrow -5"
+desc = "Previous 5 file"
+
+# open in nautilus
+[[mgr.prepend_keymap]]
+on   = [ "o" ]
+run  = 'shell "nautilus ." --orphan --confirm'
+desc = "use Nautilus open current dir"

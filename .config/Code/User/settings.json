@@ -89,7 +89,7 @@
     "editor.fontFamily": "'Maple Mono NF', regular",
     "workbench.colorCustomizations": {
         // 编辑器背景：Nord #2E3440
-        "editor.background": "#00000030",
+        "editor.background": "#00000020",
         // 侧边栏、活动栏、终端背景全部统一
         "sideBar.background": "#1f242f80",
         "activityBar.background": "#2E3440",
@@ -177,9 +177,10 @@
     "solidity.packageDefaultDependenciesDirectory": "lib",
     "solidity.formatter": "forge",
     "terminal.integrated.stickyScroll.enabled": false,
-    "workbench.colorTheme": "Tomorrow Night Blue",
     "chat.viewSessions.orientation": "stacked",
     "editor.inlineSuggest.enabled": true,
     "continue.enableTabAutocomplete": true,
-    "editor.cursorSmoothCaretAnimation": "on"
+    "editor.cursorSmoothCaretAnimation": "on",
+    "chat.disableAIFeatures": true,
+    "workbench.colorTheme": "Tomorrow Night Blue"
 }

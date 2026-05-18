@@ -1,6 +1,6 @@
 // ────────────── Layout Settings ──────────────
 layout {
-    gaps 10
+    gaps 8
     // Gap between windows
     center-focused-column "never"
     // Don’t auto-center focused column
@@ -16,12 +16,13 @@ layout {
     focus-ring {
         on
         width 3
-        active-color "#6a9cee70"
-        inactive-color "#505050"
+        // active-color "#6a9cee70"
+        // inactive-color "#505050"
     }
     
     // if use border style your opacity setting will be invalid
-    /- border {
+    border {
+        off
         width 3
         active-color "#f9f9f9"
         inactive-color "#505050"

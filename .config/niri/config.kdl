@@ -1,5 +1,6 @@
 // Niri configuration for CachyOS
 // For documentation and full reference, see: https://github.com/YaLTeR/niri/wiki
+// https://github.com/niri-wm/niri/wiki/Configuration:-Window-Rules
 // ────────────── Global Settings ──────────────
 prefer-no-csd
 // Disable program decorations
@@ -12,3 +13,4 @@ include "appearance.kdl"
 include "rules.kdl"
 include "binds.kdl"
 
+include "./noctalia.kdl"

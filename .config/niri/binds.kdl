@@ -26,11 +26,17 @@ binds {
     CTRL+ALT+SHIFT+A {
         spawn "sh" "-c" "delay=$(echo -e '1\n2\n3\n5\n10' | wofi --dmenu --prompt 'Delay seconds'); [ -n \"$delay\" ] && sleep \"$delay\" && grim -g \"$(slurp)\" - | swappy -f -"
     }
+    /- CTRL+ALT+SHIFT+A {
+        spawn "sh" "-c" "delay=$(echo -e '1\n2\n3\n5\n10' | wofi --dmenu --prompt 'Delay seconds'); [ -n \"$delay\" ] && sleep \"$delay\" && qs -c noctalia-shell ipc call plugin:screen-toolkit annotate"
+    }
     CTRL+ALT+D {
         spawn-sh "grim -g \"$(slurp)\" - | tesseract - stdout -l chi_sim+eng 2>/dev/null | wl-copy"
     }
     CTRL+ALT+P {
         spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit pin"
+    }
+    CTRL+ALT+S {
+        spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit toggle"
     }
     // ─── My Apps ───
     MOD+RETURN hotkey-overlay-title="alacritty" {
@@ -45,8 +51,8 @@ binds {
     MOD+E hotkey-overlay-title="Nautilus" {
         spawn-sh "nautilus"
     }
-    MOD+P hotkey-overlay-title="Apostrophe" {
-        spawn-sh "apostrophe --new-window"
+    MOD+P hotkey-overlay-title="FeatherPad" {
+        spawn-sh "featherpad --standalone"
     }
     // ─── Audio Controls ───
     XF86AudioRaiseVolume allow-when-locked=true {
