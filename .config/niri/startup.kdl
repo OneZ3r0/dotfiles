@@ -24,7 +24,9 @@ spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 
 spawn-at-startup "env" "QT_IM_MODULE=" "XMODIFIERS=" "qs" "-c" "noctalia-shell"
 // spawn-at-startup "qs" "-c" "noctalia-shell"
-spawn-at-startup "dbus-update-activation-environment" "--all"
+
+/* Calling import-environment without a list of variable names is deprecated */
+// spawn-at-startup "dbus-update-activation-environment" "--all"
 
 /* noctalia-shell since 4.6.0 no longer support systemd backend, and also has a idle function integrated in. */
 // spawn-at-startup "swayidle" "-w" "timeout" "600" "qs -c noctalia-shell ipc call sessionMenu lockAndSuspend"

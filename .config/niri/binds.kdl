@@ -23,12 +23,13 @@ binds {
     CTRL+ALT+A {
         spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit annotate"
     }
-    CTRL+ALT+SHIFT+A {
+    /-CTRL+ALT+SHIFT+A {
         spawn "sh" "-c" "delay=$(echo -e '1\n2\n3\n5\n10' | wofi --dmenu --prompt 'Delay seconds'); [ -n \"$delay\" ] && sleep \"$delay\" && grim -g \"$(slurp)\" - | swappy -f -"
     }
     /- CTRL+ALT+SHIFT+A {
         spawn "sh" "-c" "delay=$(echo -e '1\n2\n3\n5\n10' | wofi --dmenu --prompt 'Delay seconds'); [ -n \"$delay\" ] && sleep \"$delay\" && qs -c noctalia-shell ipc call plugin:screen-toolkit annotate"
     }
+    CTRL+ALT+SHIFT+A { spawn-sh "mark-shot"; }
     CTRL+ALT+D {
         spawn-sh "grim -g \"$(slurp)\" - | tesseract - stdout -l chi_sim+eng 2>/dev/null | wl-copy"
     }
@@ -227,5 +228,8 @@ binds {
     MOD+SHIFT+RIGHT {
         move-column-to-monitor-right
     }
+    // 开关类似 Windows「复制」，需要修改对应目标显示器的逻辑名称
+    MOD+SHIFT+P repeat=false {
+        spawn-sh "pkill -x wl-mirror || wl-mirror --fullscreen-output HDMI-A-1 eDP-2"
+    }
 }
-

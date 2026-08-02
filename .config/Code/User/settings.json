@@ -11,7 +11,6 @@
         "<C-w>": false,
         "<C-k>": false,
         "<C-j>": false,
-        "<C-i>": false,
     },
     "vim.normalModeKeyBindings": [
         {
@@ -170,7 +169,12 @@
     "workbench.editor.empty.hint": "hidden",
     "extensions.ignoreRecommendations": true,
     "workbench.iconTheme": "material-icon-theme",
+    "[shellscript]": {
+        "editor.defaultFormatter": "mads-hartmann.bash-ide-vscode",
+        "editor.formatOnSave": true
+    },
     "[solidity]": {
+        // "editor.defaultFormatter": "NomicFoundation.hardhat-solidity"
         "editor.defaultFormatter": "JuanBlanco.solidity"
     },
     "solidity.packageDefaultDependenciesContractsDirectory": "src",
@@ -181,6 +185,15 @@
     "editor.inlineSuggest.enabled": true,
     "continue.enableTabAutocomplete": true,
     "editor.cursorSmoothCaretAnimation": "on",
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "workbench.startupEditor": "none",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "slidev.preview-sync": false,
+    "html.autoClosingTags": true,
+    "editor.linkedEditing": true,
+    "editor.inlineCompletionsAccessibilityVerbose": true,
     "chat.disableAIFeatures": true,
-    "workbench.colorTheme": "Tomorrow Night Blue"
+    "continue.showInlineTip": false
 }

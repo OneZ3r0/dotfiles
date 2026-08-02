@@ -32,7 +32,7 @@ window-rule {
 // opacity window
 window-rule {
     match app-id="code"
-    match app-id="antigravity"
+    match app-id="antigravity-ide"
     match app-id="jetbrains-idea"
     match app-id="kitty"
     opacity 0.9
@@ -79,11 +79,19 @@ window-rule {
     open-maximized-to-edges false
 }
 /- window-rule {
-    match app-id="chromium" title=".*Google Gemini.*"
-    match app-id="zen"
+    match app-id="com.hex_rays.IDA.pro._9_3"
+    open-maximized true
+}
+window-rule {
+    // match app-id="chromium" title=".*Google Gemini.*"
+    // match app-id="zen"
+    // match app-id="chromium"
     match app-id="scrcpy"
     match app-id="QQ"
+    match app-id="wechat"
+    // match app-id="antigravity-ide"
+    // match app-id="cc-switch"
+    // match app-id="LM-Studio"
     block-out-from "screencast"
     // block-out-from "screen-capture"
 }
-
