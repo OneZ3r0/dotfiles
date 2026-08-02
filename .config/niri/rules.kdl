@@ -1,14 +1,6 @@
 // ────────────── Window & Layer Rules ──────────────
-/- layer-rule {
-match namespace="swww-daemonoverview"
-place-within-backdrop true
-}
-/- window-rule {
-match app-id=r#"firefox$"# title="^画中画$"
-open-floating true // Always float Firefox PiP windows
-}
 layer-rule {
-    match namespace="^noctalia-overview*"
+    match namespace="noctalia-backdrop"
     place-within-backdrop true
 }
 // blur effect
@@ -35,12 +27,8 @@ window-rule {
     match app-id="antigravity-ide"
     match app-id="jetbrains-idea"
     match app-id="kitty"
+    match app-id="dev.noctalia.Noctalia" title="Noctalia 设置"
     opacity 0.9
-}
-/- window-rule {
-match app-id="chromium"
-match app-id="zen"
-opacity 0.9
 }
 window-rule {
     draw-border-with-background false
@@ -48,7 +36,7 @@ window-rule {
 // floating window
 window-rule {
     match app-id="xdg-desktop-portal-gtk" title="^打开|^选择|Save File"
-    match app-id="dev.noctalia.noctalia-qs" title="Noctalia"
+    //match app-id="dev.noctalia.noctalia-qs" title="Noctalia"
     match app-id="qalculate-gtk"
     match app-id="btrfs-assistant"
     match app-id="scrcpy"
@@ -77,10 +65,6 @@ window-rule {
     match app-id="burp-StartBurp"
     open-fullscreen false
     open-maximized-to-edges false
-}
-/- window-rule {
-    match app-id="com.hex_rays.IDA.pro._9_3"
-    open-maximized true
 }
 window-rule {
     // match app-id="chromium" title=".*Google Gemini.*"

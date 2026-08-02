@@ -5,39 +5,21 @@ binds {
     }
     // ——— My System keyBindings ———
     MOD+M {
-        spawn-sh "qs -c noctalia-shell ipc call launcher toggle"
+        spawn-sh "noctalia msg panel-toggle launcher"
     }
     MOD+I {
-        spawn-sh "qs -c noctalia-shell ipc call settings toggle"
+        spawn-sh "noctalia msg settings-toggle"
     }
     MOD+V {
-        spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"
+        spawn-sh "noctalia msg panel-toggle clipboard"
     }
     ALT+F4 {
-        spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"
+        spawn-sh "noctalia msg panel-toggle session"
     }
     // my plugins bind
-    MOD+SHIFT+C {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:show-keys" "toggle"
-    }
-    CTRL+ALT+A {
-        spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit annotate"
-    }
-    /-CTRL+ALT+SHIFT+A {
-        spawn "sh" "-c" "delay=$(echo -e '1\n2\n3\n5\n10' | wofi --dmenu --prompt 'Delay seconds'); [ -n \"$delay\" ] && sleep \"$delay\" && grim -g \"$(slurp)\" - | swappy -f -"
-    }
-    /- CTRL+ALT+SHIFT+A {
-        spawn "sh" "-c" "delay=$(echo -e '1\n2\n3\n5\n10' | wofi --dmenu --prompt 'Delay seconds'); [ -n \"$delay\" ] && sleep \"$delay\" && qs -c noctalia-shell ipc call plugin:screen-toolkit annotate"
-    }
-    CTRL+ALT+SHIFT+A { spawn-sh "mark-shot"; }
+    CTRL+ALT+A { spawn-sh "mark-shot"; }
     CTRL+ALT+D {
         spawn-sh "grim -g \"$(slurp)\" - | tesseract - stdout -l chi_sim+eng 2>/dev/null | wl-copy"
-    }
-    CTRL+ALT+P {
-        spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit pin"
-    }
-    CTRL+ALT+S {
-        spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit toggle"
     }
     // ─── My Apps ───
     MOD+RETURN hotkey-overlay-title="alacritty" {
@@ -78,7 +60,7 @@ binds {
         spawn-sh "brightnessctl set 5%-"
     }
     XF86Sleep allow-when-locked=true {
-        spawn-sh "qs -c noctalia-shell ipc call sessionMenu lockAndSuspend"
+        spawn-sh "noctalia msg session lock-and-suspend"
     }
     // ─── Window Movement and Focus ───
     MOD+Q allow-inhibiting=false {
@@ -199,7 +181,7 @@ binds {
         toggle-window-floating
     }
     MOD+W {
-        spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"
+        spawn-sh "noctalia msg panel-toggle wallpaper"
     }
     // ─── Emergency Escape Key ───
     MOD+SHIFT+Q allow-inhibiting=false {
@@ -228,7 +210,7 @@ binds {
     MOD+SHIFT+RIGHT {
         move-column-to-monitor-right
     }
-    // 开关类似 Windows「复制」，需要修改对应目标显示器的逻辑名称
+    // 投屏共享类似 Windows「复制」，需要修改对应目标显示器的逻辑名称
     MOD+SHIFT+P repeat=false {
         spawn-sh "pkill -x wl-mirror || wl-mirror --fullscreen-output HDMI-A-1 eDP-2"
     }
