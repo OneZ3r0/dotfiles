@@ -42,6 +42,9 @@ widget_spacing = 5
 [battery]
 warning_threshold = 20
 
+[control_center.calendar]
+show_events_card = false
+
 [[control_center.shortcuts]]
 type = "caffeine"
 
@@ -99,7 +102,7 @@ blur_intensity = 0.74999998323619366
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-2", "lockscreen-widget-0000000000000001" ]
+widget_order = [ "lockscreen-login-box@eDP-2", "lockscreen-widget-0000000000000001", "lockscreen-widget-0000000000000002" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -140,6 +143,23 @@ widget_order = [ "lockscreen-login-box@eDP-2", "lockscreen-widget-00000000000000
     rotation = 0.0
     type = "clock"
 
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        center_text = true
+        clock_style = "digital"
+        format = "{:%H:%M}"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 80.0
+    box_width = 304.0
+    cx = 853.5
+    cy = 549.5
+    output = "eDP-2"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        format = "{:%Y年 %m月%d日 周%a}"
+
 [nightlight]
 enabled = true
 force = true
@@ -147,7 +167,11 @@ temperature_day = 8500
 temperature_night = 5200
 
 [notification]
+background_opacity = 0.79999998211860657
 border = false
+offset_x = 6
+offset_y = 2
+scale = 1.1000000089406967
 
 [osd]
 background_opacity = 0.4999999888241291
@@ -155,6 +179,7 @@ border = false
 
     [osd.kinds]
     keyboard_backlight = false
+    keyboard_layout = false
 
 [plugin_settings."noctalia/notes"]
 panel_position = "bottom_right"
@@ -164,6 +189,7 @@ enabled = [ "noctalia/timer", "noctalia/notes" ]
 
 [shell]
 avatar_path = "/home/onez3r0/.face/avatar.jpg"
+clipboard_auto_paste = "off"
 clipboard_history_max_entries = 750
 font_family = "Noto Sans CJK SC"
 polkit_agent = true
@@ -229,7 +255,8 @@ wallpaper_scheme = "m3-fruit-salad"
 
 [wallpaper]
 directory = "/home/onez3r0/Pictures/Wallpapers"
-transition = [ "disc" ]
+transition = [ "disc", "fade", "stripes", "wipe", "zoom" ]
+transition_on_startup = true
 
     [wallpaper.default]
     path = "/home/onez3r0/Pictures/Wallpapers/wallhaven_1j9rx1.jpg"
@@ -257,7 +284,7 @@ capsule_opacity = 0.5
 capsule_padding = 2
 color_2 = "secondary"
 show_when_idle = true
-width = 90
+width = 100
 
 [widget.bar]
 capsule = true
@@ -278,12 +305,15 @@ capsule_opacity = 0.5
 capsule = true
 capsule_opacity = 0.5
 capsule_padding = 10
-format = "{:%Y年%m月%d日 %A %H:%M:%S}"
+format = "{:%Y年%m月%d日 星期%a %H:%M:%S}"
 
 [widget.control-center]
 capsule = true
 capsule_opacity = 0.5
+custom_image = "/usr/share/icons/cachyos.svg"
+custom_image_colorize = true
 glyph = "navigation-cog"
+scale = 1.25
 
 [widget.launcher]
 capsule = true

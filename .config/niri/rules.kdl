@@ -6,7 +6,10 @@ layer-rule {
 // blur effect
 /- layer-rule {
     match namespace="noctalia-bar.*"
-    block-out-from "screencast"
+    background-effect {
+        blur false
+    }
+    //block-out-from "screencast"
 }
 window-rule {
     background-effect {
