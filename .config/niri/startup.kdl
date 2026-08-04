@@ -19,8 +19,8 @@ environment {
 // spawn-sh-at-startup "swww-daemon -n overview"
 // spawn-sh-at-startup "swww img /home/onez3r0/Pictures/Wallpapers/wallhaven-9ozmyd-overview.jpg -n overview"
 
-spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
-spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+//spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+//spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 
 // spawn-at-startup "env" "QT_IM_MODULE=" "XMODIFIERS=" "qs" "-c" "noctalia-shell"
 spawn-at-startup "noctalia"
