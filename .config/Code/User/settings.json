@@ -11,6 +11,9 @@
         "<C-w>": false,
         "<C-k>": false,
         "<C-j>": false,
+        "<C-h>": false,
+        "<C-l>": false,
+        "<C-p>": false
     },
     "vim.normalModeKeyBindings": [
         {
@@ -84,8 +87,26 @@
             ]
         }
     ],
+    "vim.operatorPendingModeKeyBindings": [
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
+        }
+    ],
     "telemetry.telemetryLevel": "off",
-    "editor.fontFamily": "'Maple Mono NF', regular",
+    // "editor.fontFamily": "'Maple Mono NF', monospace",
     "workbench.colorCustomizations": {
         // 编辑器背景：Nord #2E3440
         "editor.background": "#00000020",
@@ -99,67 +120,69 @@
         "titleBar.inactiveBackground": "#2E3440"
     },
     "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "code-runner.enableAppInsights": false,
     "code-runner.executorMap": {
         "javascript": "node",
         "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "zig": "zig run",
+        // "zig": "zig run",
         "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "php": "cd $dir && php74 $fileName",
         "python": "cd $dir && uv run $fileName",
-        "perl": "perl",
-        "perl6": "perl6",
-        "ruby": "ruby",
+        // "perl": "perl",
+        // "perl6": "perl6",
+        // "ruby": "ruby",
         "go": "cd $dir && go run $fileName",
         "lua": "lua",
-        "groovy": "groovy",
-        "powershell": "powershell -ExecutionPolicy ByPass -File",
-        "bat": "cmd /c",
-        "shellscript": "fish",
-        "fsharp": "fsi",
-        "csharp": "scriptcs",
-        "vbscript": "cscript //Nologo",
+        // "groovy": "groovy",
+        // "powershell": "powershell -ExecutionPolicy ByPass -File",
+        // "bat": "cmd /c",
+        // "shellscript": "fish",
+        // "fsharp": "fsi",
+        // "csharp": "scriptcs",
+        // "vbscript": "cscript //Nologo",
         "typescript": "ts-node",
-        "coffeescript": "coffee",
-        "scala": "scala",
-        "swift": "swift",
-        "julia": "julia",
-        "crystal": "crystal",
-        "ocaml": "ocaml",
-        "r": "Rscript",
-        "applescript": "osascript",
-        "clojure": "lein exec",
-        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+        // "coffeescript": "coffee",
+        // "scala": "scala",
+        // "swift": "swift",
+        // "julia": "julia",
+        // "crystal": "crystal",
+        // "ocaml": "ocaml",
+        // "r": "Rscript",
+        // "applescript": "osascript",
+        // "clojure": "lein exec",
+        // "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
         "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
-        "racket": "racket",
-        "scheme": "csi -script",
-        "ahk": "autohotkey",
-        "autoit": "autoit3",
-        "dart": "dart",
-        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
-        "haskell": "runghc",
-        "nim": "nim compile --verbosity:0 --hints:off --run",
-        "lisp": "sbcl --script",
-        "kit": "kitc --run",
-        "v": "v run",
-        "sass": "sass --style expanded",
-        "scss": "scss --style expanded",
-        "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
-        "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "sml": "cd $dir && sml $fileName",
-        "mojo": "mojo run",
-        "erlang": "escript",
-        "spwn": "spwn build",
-        "pkl": "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
-        "gleam": "gleam run -m $fileNameWithoutExt"
+        // "racket": "racket",
+        // "scheme": "csi -script",
+        // "ahk": "autohotkey",
+        // "autoit": "autoit3",
+        // "dart": "dart",
+        // "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        // "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+        // "haskell": "runghc",
+        // "nim": "nim compile --verbosity:0 --hints:off --run",
+        // "lisp": "sbcl --script",
+        // "kit": "kitc --run",
+        // "v": "v run",
+        // "sass": "sass --style expanded",
+        // "scss": "scss --style expanded",
+        // "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+        // "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        // "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        // "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        // "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        // "sml": "cd $dir && sml $fileName",
+        // "mojo": "mojo run",
+        // "erlang": "escript",
+        // "spwn": "spwn build",
+        // "pkl": "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
+        // "gleam": "gleam run -m $fileNameWithoutExt"
     },
     "editor.stickyScroll.enabled": false,
-    "terminal.integrated.sendKeybindingsToShell": true,
+    // terminal keybindings 交给 vscode 来处理
+    "terminal.integrated.sendKeybindingsToShell": false,
     "files.autoSave": "onFocusChange",
     "editor.formatOnSave": true,
     "code-runner.saveFileBeforeRun": true,
@@ -183,17 +206,15 @@
     "terminal.integrated.stickyScroll.enabled": false,
     "chat.viewSessions.orientation": "stacked",
     "editor.inlineSuggest.enabled": true,
-    "continue.enableTabAutocomplete": true,
     "editor.cursorSmoothCaretAnimation": "on",
     "workbench.colorTheme": "Tomorrow Night Blue",
     "workbench.startupEditor": "none",
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
-    },
     "slidev.preview-sync": false,
     "html.autoClosingTags": true,
     "editor.linkedEditing": true,
     "editor.inlineCompletionsAccessibilityVerbose": true,
     "chat.disableAIFeatures": true,
-    "continue.showInlineTip": false
+    "continue.showInlineTip": false,
+    "continue.enableTabAutocomplete": true,
+    "chatgpt.followUpQueueMode": "steer"
 }
