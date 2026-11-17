@@ -13,4 +13,5 @@ include "appearance.kdl"
 include "rules.kdl"
 include "binds.kdl"
 
-include "./noctalia.kdl"
+
+include "noctalia.kdl"

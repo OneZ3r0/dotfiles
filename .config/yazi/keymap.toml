@@ -19,7 +19,7 @@ on   = [ "g", "w" ]
 run  = "cd /mnt/windows_d"
 desc = "Go to /mnt/windows_d"
 
-[[mgr.append_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "t" ]
 run  = "cd /tmp"
 desc = "Go to /tmp"
@@ -66,8 +66,8 @@ on   = [ "K" ]
 run  = "arrow -5"
 desc = "Previous 5 file"
 
-# open in nautilus
+# open in file manager
 [[mgr.prepend_keymap]]
 on   = [ "o" ]
 run  = 'shell "nautilus ." --orphan --confirm'
-desc = "use Nautilus open current dir"
+desc = "open current dir"

@@ -4,8 +4,8 @@ layer-rule {
     place-within-backdrop true
 }
 // blur effect
-/- layer-rule {
-    match namespace="noctalia-bar.*"
+layer-rule {
+    match namespace="noctalia-bar-default"
     background-effect {
         blur false
     }
@@ -26,12 +26,20 @@ window-rule {
 }
 // opacity window
 window-rule {
-    match app-id="code"
+    // match app-id="com.microsoft.VSCode"
     match app-id="antigravity-ide"
     match app-id="jetbrains-idea"
     match app-id="kitty"
+    match app-id="Biu"
+    match app-id="QQ"
+    match app-id="wechat"
+    match app-id="org.gnome.Nautilus"
     match app-id="dev.noctalia.Noctalia" title="Noctalia 设置"
     opacity 0.9
+}
+window-rule {
+    match app-id="com.microsoft.VSCode"
+    opacity 0.92
 }
 window-rule {
     draw-border-with-background false
@@ -49,7 +57,7 @@ window-rule {
     match app-id="AdaptixClient" title="Connect"
     match app-id="AntSword"
     match app-id="Java"
-    match app-id="com.hex_rays.IDA.pro._9_3" title="Switch to..."
+    match app-id="com.hex_rays.IDA.pro._9_5" title="Switch to..."
     match app-id="org.wireshark.Wireshark" title="Value"
 // ======================================
     match title="首选项|设置$|Settings$|About$"
@@ -57,15 +65,18 @@ window-rule {
     match app-id="wps" title="wps"
     match app-id="wechat"
     match app-id="Biu"
-    match app-id="zen" title="^需要输入|我的足迹"
+    match app-id="zen" title="^需要输入|我的足迹|Password Required"
     match app-id="baidunetdisk"
     match app-id="wpp" title="wpp"
+    match app-id="thunar" title="重命名"
+    match app-id="xarchiver"
     open-floating true
 }
 // do not fullscreen window
 window-rule {
-    match app-id="com.hex_rays.IDA.pro._9_3"
+    match app-id="com.hex_rays.IDA.pro._9_5"
     match app-id="burp-StartBurp"
+    match app-id="Waydroid"
     open-fullscreen false
     open-maximized-to-edges false
 }

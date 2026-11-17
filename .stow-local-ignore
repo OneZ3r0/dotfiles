@@ -15,3 +15,6 @@ system-configs
 
 # 忽略.bak文件
 .*\.bak
+
+# mimeapps.list 使用手动维护的绝对路径链接
+^/\.config/mimeapps\.list$

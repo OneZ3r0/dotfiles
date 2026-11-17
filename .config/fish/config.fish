@@ -32,3 +32,12 @@ fish_add_path -a "/home/onez3r0/.foundry/bin"
 set -gx PATH $PATH /home/onez3r0/.lmstudio/bin
 # End of LM Studio CLI section
 
+set -gx EDITOR /usr/bin/vim
+set -gx VISUAL /usr/bin/vim
+
+# kimi-code
+fish_add_path -g "/home/onez3r0/.kimi-code/bin"
+
+# codex runtime
+set -gx CODEX_CLI_PATH (command -v codex)
+set -gx IDAPYTHON_VENV_EXECUTABLE "/home/onez3r0/.idapro/venv/bin/python3"

@@ -18,11 +18,11 @@ binds {
     }
     // my plugins bind
     CTRL+ALT+A { spawn-sh "mark-shot"; }
-    CTRL+ALT+D {
-        spawn-sh "grim -g \"$(slurp)\" - | tesseract - stdout -l chi_sim+eng 2>/dev/null | wl-copy"
+    Ctrl+Alt+D {
+        spawn-sh "grim -g \"$(slurp)\" - | tesseract stdin stdout -l chi_sim+eng 2>/dev/null | wl-copy && notify-send 'OCR' '已复制到剪贴板'"
     }
     // ─── My Apps ───
-    MOD+RETURN hotkey-overlay-title="alacritty" {
+    MOD+RETURN hotkey-overlay-title="kitty" {
         spawn-sh "kitty"
     }
     MOD+SPACE hotkey-overlay-title="wofi" {
@@ -31,7 +31,7 @@ binds {
     MOD+B hotkey-overlay-title="Open Browser" {
         spawn-sh "zen-browser"
     }
-    MOD+E hotkey-overlay-title="Nautilus" {
+    MOD+E hotkey-overlay-title="File Manager" {
         spawn-sh "nautilus"
     }
     MOD+P hotkey-overlay-title="FeatherPad" {
@@ -214,4 +214,5 @@ binds {
     MOD+SHIFT+P repeat=false {
         spawn-sh "pkill -x wl-mirror || wl-mirror --fullscreen-output HDMI-A-1 eDP-2"
     }
+    MOD+CTRL+SHIFT+P { power-off-monitors; }
 }

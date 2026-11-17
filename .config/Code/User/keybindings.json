@@ -36,6 +36,12 @@
         "command": "filesExplorer.paste",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
+    // Disable default Find and Replace
+    {
+        "key": "ctrl+h",
+        "command": "-editor.action.startFindReplaceAction",
+        "when": "editorFocus || editorIsOpen"
+    },
     // Switch editor
     {
         "key": "ctrl+h",
@@ -204,6 +210,11 @@
         "key": "ctrl+;",
         "command": "workbench.view.explorer",
         "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    // Open in os Explorer
+    {
+        "key": "ctrl+alt+e",
+        "command": "revealFileInOS"
     },
     // Remap Problems
     {

@@ -192,6 +192,11 @@
     "workbench.editor.empty.hint": "hidden",
     "extensions.ignoreRecommendations": true,
     "workbench.iconTheme": "material-icon-theme",
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.formatOnSave": true
+    },
+    "C_Cpp.clang_format_style": "file",
     "[shellscript]": {
         "editor.defaultFormatter": "mads-hartmann.bash-ide-vscode",
         "editor.formatOnSave": true
@@ -216,5 +221,6 @@
     "chat.disableAIFeatures": true,
     "continue.showInlineTip": false,
     "continue.enableTabAutocomplete": true,
-    "chatgpt.followUpQueueMode": "steer"
+    "chatgpt.followUpQueueMode": "steer",
+    "code-runner.runInTerminal": true
 }
