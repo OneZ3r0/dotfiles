@@ -1,0 +1,3 @@
+[storage]
+key_source = "file"
+key_file = "/home/onez3r0/.local/state/noctalia/storage-key"

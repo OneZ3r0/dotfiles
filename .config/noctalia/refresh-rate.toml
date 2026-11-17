@@ -1,0 +1,2 @@
+[hooks]
+power_profile_changed = '/usr/bin/fish "$HOME/.config/noctalia/hooks/refresh-rate.fish"'
